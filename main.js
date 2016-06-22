@@ -19,6 +19,7 @@ import ExPhotoGallery from './ExPhotoGallery';
 import ExScreen from './ExScreen';
 import TaskList from './TaskList';
 import CircleWordCountGraph from './HomePageGraph/CircleWordCountGraph';
+import HomePageChart from './HomePageGraph/HomePageChart';
 
 const HORIZ_SPACE = 12;
 
@@ -89,6 +90,7 @@ class FirstExperience extends React.Component {
         </Text>
 
         <CircleWordCountGraph />
+        <HomePageChart />
       </ExScreen>
     );
   }

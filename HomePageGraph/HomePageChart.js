@@ -2,45 +2,41 @@
 
 import React from 'react';
 import {
-    View,
-    Text,
-    StyleSheet,
-    ScrollView,
-    Image,
+  View,
+  StyleSheet,
+  Text,
+  ScrollView,
 } from 'react-native';
-import Pacman from './Pacman';
-import Padding from './GraphPadding';
+import DayCounts from './DayCounts';
 
 const GRAPH_SPACING = 80;
 const GRAPH_SOURCE = [
-  {key:0, value:<Padding/>},
-  {key:1, value:<Pacman/>},
-  {key:2, value:<Pacman/>},
-  {key:3, value:<Pacman/>},
-  {key:4, value:<Pacman/>},
-  {key:5, value:<Pacman/>},
-  {key:6, value:<Padding/>},
+  {key:0, value:<DayCounts/>},
+  {key:1, value:<DayCounts/>},
+  {key:2, value:<DayCounts/>},
+  {key:3, value:<DayCounts/>},
+  {key:4, value:<DayCounts/>},
+  {key:5, value:<DayCounts/>},
+  {key:6, value:<DayCounts/>},
 ]
 
-// const CHART_SOURCE
-
-export default class CircleWordCountGraph extends React.Component {
+export default class HomePageChart extends React.Component  {
+  
   render() {
     return (
       <ScrollView
-        horizontal
-        scrollsToTop={false}
-        snapToInterval={205}
-        showsHorizontalScrollIndicator={false}
-        centerContent = {true}
-        automaticallyAdjustContentInsets={false}
-        style={[styles.container, this.props.style]}> 
-        {GRAPH_SOURCE.map(source => 
-          this._renderGraph(source, {width: 320, height: 240})
-        )}
+      horizontal
+      scrollsToTop={false}
+      snapToInterval={{flex: 1}}
+      showsHorizontalScrollIndicator={false}
+      centerContent={true}
+      automaticallyAdjustContentInsets={false}
+      style={[styles.container, this.props.style]}>
+      {GRAPH_SOURCE.map(source => 
+        this._renderGraph(source, {width:320, height:240})
+      )}
       </ScrollView>
     )
-
   }
 
   _renderGraph(source, size) {
