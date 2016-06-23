@@ -51,7 +51,7 @@ export default class HomePageChart extends React.Component  {
 let styles = StyleSheet.create({
   container: {
     flex: 0,
-    height: 100,
+    height: 300,
     width: 320 + GRAPH_SPACING,
     alignSelf: 'center',
     marginTop: 16,

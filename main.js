@@ -52,6 +52,9 @@ class FirstExperience extends React.Component {
           animated
         />
 
+        <CircleWordCountGraph />
+        <HomePageChart />
+
         {/* Try editing this text and reloading your project in Exponent */}
         <Text style={styles.paragraph}>
           blah blah blah blah yarg
@@ -89,8 +92,6 @@ class FirstExperience extends React.Component {
           Made for <Text style={styles.exponent}>EXPONENT</Text>
         </Text>
 
-        <CircleWordCountGraph />
-        <HomePageChart />
       </ExScreen>
     );
   }

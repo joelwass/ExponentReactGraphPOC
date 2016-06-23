@@ -8,17 +8,17 @@ import {
     ScrollView,
     Image,
 } from 'react-native';
-import Pacman from './Pacman';
+import CircleGraph from './CircleGraph';
 import Padding from './GraphPadding';
 
-const GRAPH_SPACING = 80;
+const GRAPH_SPACING = 50;
 const GRAPH_SOURCE = [
   {key:0, value:<Padding/>},
-  {key:1, value:<Pacman/>},
-  {key:2, value:<Pacman/>},
-  {key:3, value:<Pacman/>},
-  {key:4, value:<Pacman/>},
-  {key:5, value:<Pacman/>},
+  {key:1, value:<CircleGraph/>},
+  {key:2, value:<CircleGraph/>},
+  {key:3, value:<CircleGraph/>},
+  {key:4, value:<CircleGraph/>},
+  {key:5, value:<CircleGraph/>},
   {key:6, value:<Padding/>},
 ]
 
@@ -30,7 +30,7 @@ export default class CircleWordCountGraph extends React.Component {
       <ScrollView
         horizontal
         scrollsToTop={false}
-        snapToInterval={205}
+        snapToInterval={230}
         showsHorizontalScrollIndicator={false}
         centerContent = {true}
         automaticallyAdjustContentInsets={false}
