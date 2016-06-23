@@ -5,10 +5,6 @@
   "author": null,
   "private": true,
   "main": "main.js",
-  "exp": {
-    "name": "Hello!",
-    "sdkVersion": "UNVERSIONED"
-  },
   "dependencies": {
     "exponent": "^6.0.0",
     "react": "^15.1.0",
