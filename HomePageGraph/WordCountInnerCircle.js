@@ -12,8 +12,9 @@ export default class WordCountInnerCircle extends React.Component {
 
   render() {
     return (
-      <View style={styles.background}/>
-    )
+      <View style={styles.background}>
+      </View>
+    );
   }
 }
 

@@ -14,11 +14,12 @@ export default class CircleGraph extends React.Component {
     return (
       <View style={styles.circleGraphCenter}>
         <View style={styles.circleGraph}>
-          <WordCountInnerCircle />
+          <WordCountInnerCircle>
+            <Text style={styles.wordCount}>4610</Text>
+            <Text style={styles.wordsLabel}>Words</Text>
+            <Text style={styles.wordGoal}>10000 goal</Text>
+          </WordCountInnerCircle>
         </View>
-        <Text style={styles.wordCount}>4610</Text>
-        <Text style={styles.wordsLabel}>Words</Text>
-        <Text style={styles.wordGoal}>10000 goal</Text>
       </View>
     );
   }
