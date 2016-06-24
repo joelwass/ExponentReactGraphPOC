@@ -6,7 +6,6 @@ import {
     Text,
     StyleSheet,
 } from 'react-native';
-import WordCountInnerCircle from './WordCountInnerCircle';
 
 export default class CircleGraph extends React.Component {
 
@@ -15,8 +14,14 @@ export default class CircleGraph extends React.Component {
       <View style={styles.circleGraphCenter}>
         <Text style={styles.wordsLabel}>Today</Text>
         <View style={styles.circleGraph}>
-          <WordCountInnerCircle/>
+        <View style={styles.innerCircleContent}>
+          <Text style={styles.wordCount}>4610</Text>
+          <Text style={styles.wordsLabel}>Words</Text>
+          <Text style={styles.wordGoal}>10000 goal</Text>
+          </View>
         </View>
+        <Text style={styles.wordsLabel}>Looking</Text>
+        <Text style={styles.lastSynced}>Last Sync'd Today at 2:40 PM</Text>
       </View>
     );
   }
@@ -36,22 +41,40 @@ let styles = StyleSheet.create({
   circleGraph: {
     marginTop: 15,
     alignItems: 'center',
-    flexDirection: 'row',
+    flexDirection: 'column',
     justifyContent: 'center',
     marginBottom: 15,
-    width: 0,
-    height: 0,
-    borderTopWidth: 80,
+    width: 120,
+    height: 120,
+    borderWidth: 15,
+    borderColor: 'lightgrey',
     borderTopColor: 'red',
-    borderLeftColor: 'red',
-    borderLeftWidth: 80,
-    borderRightColor: 'transparent',
-    borderRightWidth: 80,
-    borderBottomColor: 'red',
-    borderBottomWidth: 80,
-    borderTopLeftRadius: 80,
-    borderTopRightRadius: 80,
-    borderBottomRightRadius: 80,
-    borderBottomLeftRadius: 80,
+    borderRadius: 60,
+    transform: [
+      { rotate: '45deg' },
+    ],
+  },
+  lastSynced: {
+    color: '#ffa500',
+    fontSize: 12,
+    alignSelf: 'center',
+  },
+  wordsLabel: {
+    alignSelf: 'center',
+    fontSize: 12,
+  },
+  wordCount: {
+    color: '#ffa500',
+    fontSize: 16,
+    alignSelf: 'center',
+  },
+  wordGoal: {
+    fontSize: 12,
+    alignSelf: 'center',
+  },
+  innerCircleContent: {
+    transform: [
+      { rotate: '-45deg' },
+    ],
   },
 });
