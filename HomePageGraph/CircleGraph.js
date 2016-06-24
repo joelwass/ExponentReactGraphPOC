@@ -3,6 +3,7 @@
 import React from 'react';
 import {
     View,
+    Text,
     StyleSheet,
 } from 'react-native';
 import WordCountInnerCircle from './WordCountInnerCircle';
@@ -15,6 +16,9 @@ export default class CircleGraph extends React.Component {
         <View style={styles.circleGraph}>
           <WordCountInnerCircle />
         </View>
+        <Text style={styles.wordCount}>4610</Text>
+        <Text style={styles.wordsLabel}>Words</Text>
+        <Text style={styles.wordGoal}>10000 goal</Text>
       </View>
     );
   }
@@ -51,5 +55,18 @@ let styles = StyleSheet.create({
     borderTopRightRadius: 80,
     borderBottomRightRadius: 80,
     borderBottomLeftRadius: 80,
+  },
+  wordCount: {
+    color: '#ffa500',
+    fontSize: 16,
+    alignSelf: 'center',
+  },
+  wordsLabel: {
+    alignSelf: 'center',
+    fontSize: 14,
+  },
+  wordGoal: {
+    fontSize: 12,
+    alignSelf: 'center',
   },
 });
