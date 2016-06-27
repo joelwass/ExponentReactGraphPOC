@@ -28,12 +28,14 @@ export default class CircleWordCountGraph extends React.Component {
   render() {
     var _scrollView: ScrollView;
 
+    // to be able to reference the scroll view outside of the render function, need to declare it as such
     return (
       <ScrollView
         ref={(scrollView) => {_scrollView = scrollView;}}
         horizontal
         scrollsToTop={false}
         snapToInterval={230}
+        contentOffset={{x:920, y:0}}
         showsHorizontalScrollIndicator={false}
         centerContent = {true}
         automaticallyAdjustContentInsets={false}
