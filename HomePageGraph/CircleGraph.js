@@ -6,8 +6,10 @@ import {
     Text,
     StyleSheet,
 } from 'react-native';
+import { AnimatedCircularProgress } from 'react-native-circular-progress';
 
 const DAYS_OF_WEEK = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+const MAX_POINTS = 10000;
 
 export default class CircleGraph extends React.Component {
 
@@ -15,7 +17,7 @@ export default class CircleGraph extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      wordCount: 0,
+      wordCount: this.props.wordCount,
       dayLabel: "Today",
     };
 
@@ -35,22 +37,35 @@ export default class CircleGraph extends React.Component {
       if (dayInt < 0) {
         dayInt = 7 + dayInt;
       }
+      this.state.dayLabel = DAYS_OF_WEEK[dayInt];
       return DAYS_OF_WEEK[dayInt];
     }
   }
 
   // as seen, this is how you call a local component method that is binded to this object
   render() {
+    const fillAmount = this.state.wordCount / MAX_POINTS * 100;
+
+    // children fill function is required through the react-native-circular-progress that we are using, i can implement this on our own but it might not be necessary too.
     return (
       <View style={styles.circleGraphCenter}>
         <Text style={styles.wordsLabel}>{this._getDayLabel()}</Text>
-        <View style={styles.circleGraph}>
-          <View style={styles.innerCircleContent}>
-            <Text style={styles.wordCount}>{this.props.wordCount}</Text>
-            <Text style={styles.wordsLabel}>Words</Text>
-            <Text style={styles.wordGoal}>10000 goal</Text>
-          </View>
-        </View>
+        <AnimatedCircularProgress
+          size={150}
+          width={18}
+          fill={fillAmount}
+          tintColor="#00e0ff"
+          backgroundColor="#3d5875">
+          {
+            (fill) => (
+              <View style={styles.innerCircleContent}>
+                <Text style={styles.wordCount}>{this.props.wordCount}</Text>
+                <Text style={styles.wordsLabel}>Words</Text>
+                <Text style={styles.wordGoal}>10000 goal</Text>
+              </View>
+            )
+          }
+        </AnimatedCircularProgress>
       </View>
     );
   }
@@ -62,22 +77,6 @@ let styles = StyleSheet.create({
     alignItems: 'center',
     alignSelf: 'center',
     width: 180,
-  },
-  circleGraph: {
-    marginTop: 15,
-    alignItems: 'center',
-    flexDirection: 'column',
-    justifyContent: 'center',
-    marginBottom: 15,
-    width: 120,
-    height: 120,
-    borderWidth: 15,
-    borderColor: 'lightgrey',
-    borderTopColor: 'red',
-    borderRadius: 60,
-    transform: [
-      { rotate: '45deg' },
-    ],
   },
   wordsLabel: {
     alignSelf: 'center',
@@ -93,8 +92,8 @@ let styles = StyleSheet.create({
     alignSelf: 'center',
   },
   innerCircleContent: {
-    transform: [
-      { rotate: '-45deg' },
-    ],
+    top:50,
+    left: 44,
+    position: 'absolute',
   },
 });

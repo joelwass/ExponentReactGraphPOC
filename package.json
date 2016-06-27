@@ -8,7 +8,8 @@
   "dependencies": {
     "exponent": "^6.0.0",
     "react": "^15.1.0",
-    "react-native": "github:exponentjs/react-native#sdk-6.0.0"
+    "react-native": "github:exponentjs/react-native#sdk-6.0.0",
+    "react-native-circular-progress": "0.0.7"
   },
   "exp": {
     "name": "Hello!",
