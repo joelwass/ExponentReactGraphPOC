@@ -53,6 +53,8 @@ class FirstExperience extends React.Component {
         />
 
         <CircleWordCountGraph />
+        <Text style={styles.wordsLabel}>Looking</Text>
+        <Text style={styles.lastSynced}>Last Syncd Today at 2:40 PM</Text>
         <HomePageChart />
 
         {/* Try editing this text and reloading your project in Exponent */}
@@ -82,7 +84,7 @@ class FirstExperience extends React.Component {
         {/* Publishing instructions */}
         <Text style={styles.sectionTitle}>Publishing</Text>
         <Text style={styles.paragraph}>
-          When you are ready to share what your work, run 
+          When you are ready to share what your work, run
           <Text style={styles.code}>exp publish</Text>.
           Give the link to someone who has the Exponent app and they'll be
           able to see what you've built.
@@ -152,6 +154,15 @@ let styles = StyleSheet.create({
     color: '#777',
     fontWeight: '200',
     letterSpacing: 3,
+  },
+  lastSynced: {
+    color: '#ffa500',
+    fontSize: 12,
+    alignSelf: 'center',
+  },
+  wordsLabel: {
+    alignSelf: 'center',
+    fontSize: 12,
   },
 });
 

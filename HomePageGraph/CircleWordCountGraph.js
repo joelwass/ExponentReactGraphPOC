@@ -14,11 +14,11 @@ import Padding from './GraphPadding';
 const GRAPH_SPACING = 50;
 const GRAPH_SOURCE = [
   {key:0, value:<Padding/>},
-  {key:1, value:<CircleGraph/>},
-  {key:2, value:<CircleGraph/>},
-  {key:3, value:<CircleGraph/>},
-  {key:4, value:<CircleGraph/>},
-  {key:5, value:<CircleGraph/>},
+  {key:1, value:<CircleGraph wordCount={1819} dayOffset={-4}/>},
+  {key:2, value:<CircleGraph wordCount={5282} dayOffset={-3}/>},
+  {key:3, value:<CircleGraph wordCount={1263} dayOffset={-2}/>},
+  {key:4, value:<CircleGraph wordCount={348} dayOffset={-1}/>},
+  {key:5, value:<CircleGraph wordCount={4829} dayOffset={0}/>},
   {key:6, value:<Padding/>},
 ]
 
@@ -26,21 +26,23 @@ const GRAPH_SOURCE = [
 
 export default class CircleWordCountGraph extends React.Component {
   render() {
+    var _scrollView: ScrollView;
+
     return (
       <ScrollView
+        ref={(scrollView) => {_scrollView = scrollView;}}
         horizontal
         scrollsToTop={false}
         snapToInterval={230}
         showsHorizontalScrollIndicator={false}
         centerContent = {true}
         automaticallyAdjustContentInsets={false}
-        style={[styles.container, this.props.style]}> 
-        {GRAPH_SOURCE.map(source => 
+        style={[styles.container, this.props.style]}>
+        {GRAPH_SOURCE.map(source =>
           this._renderGraph(source, {width: 320, height: 240})
         )}
       </ScrollView>
     )
-
   }
 
   _renderGraph(source, size) {
@@ -67,11 +69,7 @@ let styles = StyleSheet.create({
     flexDirection: 'column',
     alignItems: 'center',
     alignSelf: 'center',
-    shadowRadius: 3,
-    shadowColor: '#000',
     overflow: 'visible',
-    shadowOpacity: 0.3,
-    shadowOffset: { width: 0, height: 1 },
   },
   graph: {
     overflow: 'visible',
