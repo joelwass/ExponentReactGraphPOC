@@ -18,8 +18,8 @@ import ExBoxes from './ExBoxes';
 import ExPhotoGallery from './ExPhotoGallery';
 import ExScreen from './ExScreen';
 import TaskList from './TaskList';
-import CircleWordCountGraph from './HomePageGraph/CircleWordCountGraph';
-import HomePageChart from './HomePageGraph/HomePageChart';
+import CircleWordCountGraph from './HomePageGraph/CircleProgressGraph/CircleWordCountGraph';
+import HomePageChart from './HomePageGraph/HomeViewHistogram/HomePageChart';
 
 const HORIZ_SPACE = 12;
 
