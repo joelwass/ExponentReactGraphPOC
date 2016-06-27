@@ -11,7 +11,7 @@ import {
 import CircleGraph from './CircleGraph';
 import Padding from './GraphPadding';
 
-const GRAPH_SPACING = 50;
+const GRAPH_SPACING = 30;
 const GRAPH_SOURCE = [
   {key:0, value:<Padding/>},
   {key:1, value:<CircleGraph wordCount={1819} dayOffset={-4}/>},
@@ -34,8 +34,8 @@ export default class CircleWordCountGraph extends React.Component {
         ref={(scrollView) => {_scrollView = scrollView;}}
         horizontal
         scrollsToTop={false}
-        snapToInterval={230}
-        contentOffset={{x:920, y:0}}
+        snapToInterval={210}
+        contentOffset={{x:820, y:0}}
         showsHorizontalScrollIndicator={false}
         centerContent = {true}
         automaticallyAdjustContentInsets={false}

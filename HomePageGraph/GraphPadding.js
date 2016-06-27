@@ -17,6 +17,6 @@ export default class GraphPadding extends React.Component {
 
 let styles = StyleSheet.create({
   padding: {
-    width: 20,
+    width: 40,
   },
 })
