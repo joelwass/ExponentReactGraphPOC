@@ -18,7 +18,7 @@ const GRAPH_SOURCE = [
   {key:2, value:<CircleGraph wordCount={5282} dayOffset={-3}/>},
   {key:3, value:<CircleGraph wordCount={1263} dayOffset={-2}/>},
   {key:4, value:<CircleGraph wordCount={348} dayOffset={-1}/>},
-  {key:5, value:<CircleGraph wordCount={4829} dayOffset={0}/>},
+  {key:5, value:<CircleGraph wordCount={4729} dayOffset={0}/>},
   {key:6, value:<Padding/>},
 ]
 
@@ -35,7 +35,7 @@ export default class CircleWordCountGraph extends React.Component {
         horizontal
         scrollsToTop={false}
         snapToInterval={210}
-        contentOffset={{x:820, y:0}}
+        contentOffset={{x:840, y:0}}
         showsHorizontalScrollIndicator={false}
         centerContent = {true}
         automaticallyAdjustContentInsets={false}

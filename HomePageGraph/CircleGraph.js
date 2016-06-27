@@ -20,7 +20,6 @@ export default class CircleGraph extends React.Component {
       wordCount: this.props.wordCount,
       dayLabel: "Today",
     };
-
     // binds the function to this, so we can reference this.props
     this._getDayLabel.bind(this);
   }
@@ -46,21 +45,21 @@ export default class CircleGraph extends React.Component {
   render() {
     const fillAmount = this.state.wordCount / MAX_POINTS * 100;
 
-    // children fill function is required through the react-native-circular-progress that we are using, i can implement this on our own but it might not be necessary too.
+    // children fill function is required through the react-native-circular-progress that we are using, i can implement this circular graph animation on our own but it might not be necessary too.
     return (
       <View style={styles.circleGraphCenter}>
-        <Text style={styles.wordsLabel}>{this._getDayLabel()}</Text>
+        <Text style={[styles.centerFontSize, styles.dayLabel]}>{this._getDayLabel()}</Text>
         <AnimatedCircularProgress
           size={150}
           width={18}
           fill={fillAmount}
-          tintColor="#00e0ff"
-          backgroundColor="#3d5875">
+          tintColor="#ffa500"
+          backgroundColor="#d3d3d3">
           {
             (fill) => (
               <View style={styles.innerCircleContent}>
                 <Text style={styles.wordCount}>{this.props.wordCount}</Text>
-                <Text style={styles.wordsLabel}>Words</Text>
+                <Text style={styles.centerFontSize}>Words</Text>
                 <Text style={styles.wordGoal}>10000 goal</Text>
               </View>
             )
@@ -78,7 +77,10 @@ let styles = StyleSheet.create({
     alignSelf: 'center',
     width: 180,
   },
-  wordsLabel: {
+  dayLabel: {
+    marginBottom: 10,
+  },
+  centerFontSize: {
     alignSelf: 'center',
     fontSize: 12,
   },
