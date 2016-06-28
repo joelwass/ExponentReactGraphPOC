@@ -14,16 +14,37 @@ const HOUR_SPACING = [
 
 export default class DayCounts extends React.Component {
 
+  constructor(props) {
+    super(props);
+    this.state = {
+      height: this.props.height;
+    };
+    this._getRandomBarHeight.bind(this);
+  }
+
+// create random number between 0 and 100 or whatever our max value is or should be
+  _getRandomBarHeight() {
+    return Math.random() * (this.state.height - 0) + 0;
+  }
+
   render() {
     return (
       <View style={styles.dayCountContainer}>
-        <HourCount barInterval={1} barHeight={20}/>
-        <HourCount barInterval={1} barHeight={80}/>
-        <HourCount barInterval={1} barHeight={50}/>
-        <HourCount barInterval={1} barHeight={40}/>
-        <HourCount barInterval={1} barHeight={70}/>
-        <HourCount barInterval={1} barHeight={55}/>
-        <HourCount barInterval={1} barHeight={90}/>
+        <HourCount barInterval={1} barHeight={this._getRandomBarHeight()}/>
+        <HourCount barInterval={1} barHeight={this._getRandomBarHeight()}/>
+        <HourCount barInterval={1} barHeight={this._getRandomBarHeight()}/>
+        <HourCount barInterval={1} barHeight={this._getRandomBarHeight()}/>
+        <HourCount barInterval={1} barHeight={this._getRandomBarHeight()}/>
+        <HourCount barInterval={1} barHeight={this._getRandomBarHeight()}/>
+        <HourCount barInterval={1} barHeight={this._getRandomBarHeight()}/>
+        <HourCount barInterval={1} barHeight={this._getRandomBarHeight()}/>
+        <HourCount barInterval={1} barHeight={this._getRandomBarHeight()}/>
+        <HourCount barInterval={1} barHeight={this._getRandomBarHeight()}/>
+        <HourCount barInterval={1} barHeight={this._getRandomBarHeight()}/>
+        <HourCount barInterval={1} barHeight={this._getRandomBarHeight()}/>
+        <HourCount barInterval={1} barHeight={this._getRandomBarHeight()}/>
+        <HourCount barInterval={1} barHeight={this._getRandomBarHeight()}/>
+        <HourCount barInterval={1} barHeight={this._getRandomBarHeight()}/>
       </View>
     );
   }

@@ -10,17 +10,26 @@ import {
 import DayCounts from './DayCounts';
 
 const GRAPH_SPACING = 80;
+
+// we're creating the array of daycount views here, if we want, we could pass in the day values from main.js to here, and then from here to the daycounts.
 const GRAPH_SOURCE = [
-  { key: 0, value: <DayCounts/> },
-  { key: 1, value: <DayCounts/> },
-  { key: 2, value: <DayCounts/> },
-  { key: 3, value: <DayCounts/> },
-  { key: 4, value: <DayCounts/> },
-  { key: 5, value: <DayCounts/> },
-  { key: 6, value: <DayCounts/> },
+  { key: 0, value: <DayCounts graphHeight:{this.state.height}/> },
+  { key: 1, value: <DayCounts graphHeight:this.state.height/> },
+  { key: 2, value: <DayCounts graphHeight:this.state.height/> },
+  { key: 3, value: <DayCounts graphHeight:this.state.height/> },
+  { key: 4, value: <DayCounts graphHeight:this.state.height/> },
+  { key: 5, value: <DayCounts graphHeight:this.state.height/> },
+  { key: 6, value: <DayCounts graphHeight:this.state.height/> },
 ];
 
 export default class HomePageChart extends React.Component  {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      height: 300,
+    };
+  }
 
   render() {
     return (
@@ -51,7 +60,7 @@ export default class HomePageChart extends React.Component  {
 let styles = StyleSheet.create({
   container: {
     flex: 0,
-    height: 300,
+    height: this.state.height,
     width: 320 + GRAPH_SPACING,
     alignSelf: 'center',
     marginTop: 16,
