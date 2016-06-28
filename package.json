@@ -6,10 +6,12 @@
   "private": true,
   "main": "main.js",
   "dependencies": {
+    "babel-preset-react-native-stage-0": "^1.0.1",
     "exponent": "^6.0.0",
     "react": "^15.1.0",
     "react-native": "github:exponentjs/react-native#sdk-6.0.0",
-    "react-native-circular-progress": "0.0.7"
+    "react-native-circular-progress": "0.0.7",
+    "react-native-icons": "^0.7.1"
   },
   "exp": {
     "name": "Hello!",
