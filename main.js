@@ -34,8 +34,10 @@ class FirstExperience extends React.Component {
       <View>
         <TopBar childName={this.state.childName}/>
         <CircleWordCountGraph />
-        <Text style={styles.wordsLabel}>Looking</Text>
-        <Text style={styles.lastSynced}>Last Syncd Today at 2:40 PM</Text>
+        <View style={styles.lookingContainer}>
+          <Text style={styles.wordsLabel}>Looking</Text>
+          <Text style={styles.lastSynced}>Last Syncd Today at 2:40 PM</Text>
+        </View>
         <HomePageChart />
       </View>
     );
@@ -51,6 +53,10 @@ let styles = StyleSheet.create({
   wordsLabel: {
     alignSelf: 'center',
     fontSize: 12,
+  },
+  lookingContainer: {
+    paddingBottom: 16,
+    backgroundColor: 'azure',
   },
 });
 

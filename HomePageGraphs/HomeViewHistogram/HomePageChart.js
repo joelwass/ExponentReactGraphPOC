@@ -66,7 +66,6 @@ let styles = StyleSheet.create({
     overflow: 'visible',
   },
   containerBackground: {
-    marginTop: 16,
     backgroundColor: 'orange',
   },
   scrollViewBackground: {

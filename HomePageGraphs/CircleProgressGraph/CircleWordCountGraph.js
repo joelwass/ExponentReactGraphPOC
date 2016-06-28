@@ -61,9 +61,10 @@ let styles = StyleSheet.create({
     flex: 0,
     width: 320 + GRAPH_SPACING,
     alignSelf: 'center',
-    marginTop: 16,
-    marginBottom: 12,
+    paddingTop: 5,
+    paddingBottom: 15,
     overflow: 'visible',
+    backgroundColor: 'azure',
   },
   graphContainer: {
     flex: 1,
