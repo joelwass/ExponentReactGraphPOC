@@ -14,37 +14,47 @@ const HOUR_SPACING = [
 
 export default class DayCounts extends React.Component {
 
-  constructor(props) {
-    super(props);
+  constructor(props, context) {
+    super(props, context);
     this.state = {
-      height: this.props.height;
+      graphHeight: this.props.graphHeight,
     };
     this._getRandomBarHeight.bind(this);
   }
 
 // create random number between 0 and 100 or whatever our max value is or should be
   _getRandomBarHeight() {
-    return Math.random() * (this.state.height - 0) + 0;
+    return Math.random() * ((this.state.graphHeight*2/3) - 0) + 0;
   }
 
   render() {
     return (
       <View style={styles.dayCountContainer}>
-        <HourCount barInterval={1} barHeight={this._getRandomBarHeight()}/>
-        <HourCount barInterval={1} barHeight={this._getRandomBarHeight()}/>
-        <HourCount barInterval={1} barHeight={this._getRandomBarHeight()}/>
-        <HourCount barInterval={1} barHeight={this._getRandomBarHeight()}/>
-        <HourCount barInterval={1} barHeight={this._getRandomBarHeight()}/>
-        <HourCount barInterval={1} barHeight={this._getRandomBarHeight()}/>
-        <HourCount barInterval={1} barHeight={this._getRandomBarHeight()}/>
-        <HourCount barInterval={1} barHeight={this._getRandomBarHeight()}/>
-        <HourCount barInterval={1} barHeight={this._getRandomBarHeight()}/>
-        <HourCount barInterval={1} barHeight={this._getRandomBarHeight()}/>
-        <HourCount barInterval={1} barHeight={this._getRandomBarHeight()}/>
-        <HourCount barInterval={1} barHeight={this._getRandomBarHeight()}/>
-        <HourCount barInterval={1} barHeight={this._getRandomBarHeight()}/>
-        <HourCount barInterval={1} barHeight={this._getRandomBarHeight()}/>
-        <HourCount barInterval={1} barHeight={this._getRandomBarHeight()}/>
+        <View style={styles.graphLabels}>
+
+        </View>
+        <View style={styles.wordCountsAndTimeLabel}>
+          <View style={styles.timeLabels}>
+
+          </View>
+          <View style={styles.bars}>
+            <HourCount barInterval={1} barHeight={this._getRandomBarHeight()}/>
+            <HourCount barInterval={1} barHeight={this._getRandomBarHeight()}/>
+            <HourCount barInterval={1} barHeight={this._getRandomBarHeight()}/>
+            <HourCount barInterval={1} barHeight={this._getRandomBarHeight()}/>
+            <HourCount barInterval={1} barHeight={this._getRandomBarHeight()}/>
+            <HourCount barInterval={1} barHeight={this._getRandomBarHeight()}/>
+            <HourCount barInterval={1} barHeight={this._getRandomBarHeight()}/>
+            <HourCount barInterval={1} barHeight={this._getRandomBarHeight()}/>
+            <HourCount barInterval={1} barHeight={this._getRandomBarHeight()}/>
+            <HourCount barInterval={1} barHeight={this._getRandomBarHeight()}/>
+            <HourCount barInterval={1} barHeight={this._getRandomBarHeight()}/>
+            <HourCount barInterval={1} barHeight={this._getRandomBarHeight()}/>
+            <HourCount barInterval={1} barHeight={this._getRandomBarHeight()}/>
+            <HourCount barInterval={1} barHeight={this._getRandomBarHeight()}/>
+            <HourCount barInterval={1} barHeight={this._getRandomBarHeight()}/>
+          </View>
+        </View>
       </View>
     );
   }
@@ -53,11 +63,17 @@ export default class DayCounts extends React.Component {
 let styles = StyleSheet.create({
   dayCountContainer: {
     flexDirection: 'row',
-    width: 320,
+    width: 400,
     alignSelf: 'center',
     shadowRadius: 3,
     shadowColor: '#000',
     shadowOpacity: 0.3,
     shadowOffset: { width: 0, height: 1 },
   },
+  bars: {
+    flexDirection: 'row',
+    width: 360,
+    marginLeft: 20,
+    marginRight:20,
+  }
 });

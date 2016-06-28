@@ -11,17 +11,6 @@ import DayCounts from './DayCounts';
 
 const GRAPH_SPACING = 80;
 
-// we're creating the array of daycount views here, if we want, we could pass in the day values from main.js to here, and then from here to the daycounts.
-const GRAPH_SOURCE = [
-  { key: 0, value: <DayCounts graphHeight:{this.state.height}/> },
-  { key: 1, value: <DayCounts graphHeight:this.state.height/> },
-  { key: 2, value: <DayCounts graphHeight:this.state.height/> },
-  { key: 3, value: <DayCounts graphHeight:this.state.height/> },
-  { key: 4, value: <DayCounts graphHeight:this.state.height/> },
-  { key: 5, value: <DayCounts graphHeight:this.state.height/> },
-  { key: 6, value: <DayCounts graphHeight:this.state.height/> },
-];
-
 export default class HomePageChart extends React.Component  {
 
   constructor(props) {
@@ -41,26 +30,18 @@ export default class HomePageChart extends React.Component  {
       centerContent={true}
       automaticallyAdjustContentInsets={false}
       style={[styles.container, this.props.style]}>
-      {GRAPH_SOURCE.map(source =>
-        this._renderGraph(source, { width: 320, height: 240 })
-      )}
+        <DayCounts graphHeight={this.state.height}/>
+        <DayCounts graphHeight={this.state.height}/>
+        <DayCounts graphHeight={this.state.height}/>
       </ScrollView>
     )
-  }
-
-  _renderGraph(source, size) {
-    return (
-    <View key={source.key} style={styles.graphContainer}>
-      {source.value}
-    </View>
-    );
   }
 }
 
 let styles = StyleSheet.create({
   container: {
     flex: 0,
-    height: this.state.height,
+    height: 300,
     width: 320 + GRAPH_SPACING,
     alignSelf: 'center',
     marginTop: 16,
