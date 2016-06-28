@@ -30,9 +30,9 @@ export default class HomePageChart extends React.Component  {
       centerContent={true}
       automaticallyAdjustContentInsets={false}
       style={[styles.container, this.props.style]}>
-        <DayCounts graphHeight={this.state.height}/>
-        <DayCounts graphHeight={this.state.height}/>
-        <DayCounts graphHeight={this.state.height}/>
+        <DayCounts graphHeight={this.state.height} timeThird={0}/>
+        <DayCounts graphHeight={this.state.height} timeThird={1}/>
+        <DayCounts graphHeight={this.state.height} timeThird={2}/>
       </ScrollView>
     )
   }
