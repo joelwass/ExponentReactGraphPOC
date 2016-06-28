@@ -18,7 +18,7 @@ export default class DayCounts extends React.Component {
     super(props, context);
     this.state = {
       graphHeight: this.props.graphHeight,
-      //time third could be 0, 1, or 2. based on which third of time we're looking at
+      //time third could be 0, 1, or 2. based on which third of time we're looking at (7pm to 5am.. etc)
       timeThird: this.props.timeThird,
     };
     this._getRandomBarHeight.bind(this);
@@ -47,15 +47,21 @@ export default class DayCounts extends React.Component {
   render() {
     return (
       <View style={styles.dayCountContainer}>
+        <View style={styles.timeLabels}>
+          <Text style={styles.times}>{this._getTimeLabels()[0]}</Text>
+          <Text style={styles.times}>{this._getTimeLabels()[1]}</Text>
+          <Text style={styles.times}>{this._getTimeLabels()[2]}</Text>
+          <Text style={styles.times}>{this._getTimeLabels()[3]}</Text>
+          <Text style={styles.times}>{this._getTimeLabels()[4]}</Text>
+          <Text style={styles.times}>{this._getTimeLabels()[5]}</Text>
+        </View>
+        <View style={styles.notchesAndWordLabels}>
+          <View style={styles.wordCountNotch}/>
+          <Text style={[styles.wordCountText, styles.smallFontSize]}>1000 words</Text>
+          <View style={styles.wordCountNotch}/>
+          <Text style={[styles.wordCountText, styles.smallFontSize]}>500 words</Text>
+        </View>
         <View style={styles.bars}>
-          <View style={styles.timeLabels}>
-            <Text style={styles.times}>{this._getTimeLabels()[0]}</Text>
-            <Text style={styles.times}>{this._getTimeLabels()[1]}</Text>
-            <Text style={styles.times}>{this._getTimeLabels()[2]}</Text>
-            <Text style={styles.times}>{this._getTimeLabels()[3]}</Text>
-            <Text style={styles.times}>{this._getTimeLabels()[4]}</Text>
-            <Text style={styles.times}>{this._getTimeLabels()[5]}</Text>
-          </View>
           <HourCount barInterval={1} barHeight={this._getRandomBarHeight()}/>
           <HourCount barInterval={1} barHeight={this._getRandomBarHeight()}/>
           <HourCount barInterval={1} barHeight={this._getRandomBarHeight()}/>
@@ -73,12 +79,17 @@ export default class DayCounts extends React.Component {
           <HourCount barInterval={1} barHeight={this._getRandomBarHeight()}/>
           <HourCount barInterval={1} barHeight={this._getRandomBarHeight()}/>
           <HourCount barInterval={1} barHeight={this._getRandomBarHeight()}/>
-          <View style={styles.notchesAndWordLabels}>
-            <Text style={[styles.oneKWordText, styles.smallFontSize]}>1000 words</Text>
-            <View style={styles.oneKWordNotch}/>
-            <Text style={[styles.fiveHundredWordText, styles.smallFontSize]}>500 words</Text>
-            <View style={styles.fiveHundredWordNotch}/>
-          </View>
+          <HourCount barInterval={1} barHeight={this._getRandomBarHeight()}/>
+          <HourCount barInterval={1} barHeight={this._getRandomBarHeight()}/>
+          <HourCount barInterval={1} barHeight={this._getRandomBarHeight()}/>
+          <HourCount barInterval={1} barHeight={this._getRandomBarHeight()}/>
+          <HourCount barInterval={1} barHeight={this._getRandomBarHeight()}/>
+          <HourCount barInterval={1} barHeight={this._getRandomBarHeight()}/>
+          <HourCount barInterval={1} barHeight={this._getRandomBarHeight()}/>
+          <HourCount barInterval={1} barHeight={this._getRandomBarHeight()}/>
+          <HourCount barInterval={1} barHeight={this._getRandomBarHeight()}/>
+          <HourCount barInterval={1} barHeight={this._getRandomBarHeight()}/>
+          <HourCount barInterval={1} barHeight={this._getRandomBarHeight()}/>
         </View>
       </View>
     );
@@ -104,34 +115,22 @@ let styles = StyleSheet.create({
     marginLeft:17,
     marginRight:17,
   },
-  oneKWordText: {
-    position: 'absolute',
-    marginTop: 100,
-    marginLeft: 30,
-  },
-  oneKWordNotch: {
-    position: 'absolute',
+  wordCountNotch: {
     backgroundColor: 'black',
     width: 358,
-    height: 2,
-    marginTop: 90,
-    marginLeft: 30,
+    height: 1,
+    marginTop: 100,
   },
-  fiveHundredWordText: {
-
-  },
-  fiveHundredWordNotch: {
-
-  },
-  bars: {
-
+  wordCountText: {
+    marginTop: 2,
   },
   dayCountContainer: {
-    width: 400,
+    width: 380,
+    flexDirection: 'row',
+    marginLeft: 20,
   },
   bars: {
     flexDirection: 'row',
-    width: 380,
-    marginLeft: 20,
+    marginLeft: 10,
   },
 });

@@ -15,9 +15,9 @@ export default class HourCounts extends React.Component {
     this.setMarginLeft = this.setMarginLeft.bind(this);
     this.setHeight = this.setHeight.bind(this);
   }
-  
+
   setMarginLeft () {
-      return { marginLeft: 10 * this.props.barInterval};
+      return { marginLeft: 6 * this.props.barInterval};
   };
 
   setHeight () {
@@ -36,8 +36,8 @@ export default class HourCounts extends React.Component {
 
 let style = StyleSheet.create({
   hourCountBar: {
-    width: 10,
+    width: 6,
     backgroundColor: 'green',
+    borderRadius: 2,
   },
 });
-
