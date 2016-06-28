@@ -32,7 +32,7 @@ export default class CircleWordCountGraph extends React.Component {
     return (
       <ScrollView
         ref={(scrollView) => {_scrollView = scrollView;}}
-        horizontal
+        horizontal={true}
         scrollsToTop={false}
         snapToInterval={210}
         contentOffset={{x:840, y:0}}

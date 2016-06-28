@@ -37,7 +37,7 @@ export default class HourCounts extends React.Component {
 let style = StyleSheet.create({
   hourCountBar: {
     width: 6,
-    backgroundColor: 'green',
+    backgroundColor: 'white',
     borderRadius: 2,
   },
 });

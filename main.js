@@ -15,8 +15,9 @@ import {
   View,
 } from 'react-native';
 
-import CircleWordCountGraph from './HomePageGraph/CircleProgressGraph/CircleWordCountGraph';
-import HomePageChart from './HomePageGraph/HomeViewHistogram/HomePageChart';
+import CircleWordCountGraph from './HomePageGraphs/CircleProgressGraph/CircleWordCountGraph';
+import HomePageChart from './HomePageGraphs/HomeViewHistogram/HomePageChart';
+import TopBar from './HomePageTopBar/TopBar';
 
 
 class FirstExperience extends React.Component {
@@ -24,13 +25,14 @@ class FirstExperience extends React.Component {
   constructor(props, context) {
     super(props, context);
     this.state = {
-
+      childName: "Ryan",
     };
   }
 
   render() {
     return (
       <View>
+        <TopBar childName={this.state.childName}/>
         <CircleWordCountGraph />
         <Text style={styles.wordsLabel}>Looking</Text>
         <Text style={styles.lastSynced}>Last Syncd Today at 2:40 PM</Text>

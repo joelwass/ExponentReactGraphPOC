@@ -55,12 +55,6 @@ export default class DayCounts extends React.Component {
           <Text style={styles.times}>{this._getTimeLabels()[4]}</Text>
           <Text style={styles.times}>{this._getTimeLabels()[5]}</Text>
         </View>
-        <View style={styles.notchesAndWordLabels}>
-          <View style={styles.wordCountNotch}/>
-          <Text style={[styles.wordCountText, styles.smallFontSize]}>1000 words</Text>
-          <View style={styles.wordCountNotch}/>
-          <Text style={[styles.wordCountText, styles.smallFontSize]}>500 words</Text>
-        </View>
         <View style={styles.bars}>
           <HourCount barInterval={1} barHeight={this._getRandomBarHeight()}/>
           <HourCount barInterval={1} barHeight={this._getRandomBarHeight()}/>
@@ -97,10 +91,6 @@ export default class DayCounts extends React.Component {
 }
 
 let styles = StyleSheet.create({
-  notchesAndWordLabels: {
-    position: 'absolute',
-    marginLeft: 20,
-  },
   timeLabels: {
     position: 'absolute',
     flexDirection: 'row',
@@ -110,19 +100,11 @@ let styles = StyleSheet.create({
     fontSize: 10,
   },
   times: {
+    color: 'white',
     fontSize: 12,
     marginTop: 14,
     marginLeft:17,
     marginRight:17,
-  },
-  wordCountNotch: {
-    backgroundColor: 'black',
-    width: 358,
-    height: 1,
-    marginTop: 100,
-  },
-  wordCountText: {
-    marginTop: 2,
   },
   dayCountContainer: {
     width: 380,
