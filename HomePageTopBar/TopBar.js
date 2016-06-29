@@ -22,11 +22,19 @@ export default class TopBar extends React.Component {
     await Font.loadAsync({
       awesome: 'https://github.com/FortAwesome/Font-Awesome/raw/master/fonts/fontawesome-webfont.ttf',
     });
-
     this.setState({assetsLoaded: true});
   }
 
   render() {
+    if (!this.state.assetsLoaded) {
+      return (
+        <View style={styles.topBar}>
+          <Image style={styles.childImage} source={require('./childImage.png')} />
+          <Text style={styles.childName}>{this.state.childName}</Text>
+        </View>
+      );
+    }
+
     return (
       <View style={styles.topBar}>
         <Image style={styles.childImage} source={require('./childImage.png')} />
@@ -51,30 +59,35 @@ export default class TopBar extends React.Component {
 let styles = StyleSheet.create({
   battery: {
     marginTop: 6,
-    marginLeft: 186,
-    marginRight: 22,
+    width: 38,
+    alignItems: 'flex-end',
     color: 'grey',
+    marginRight: 10,
   },
   intercomChat: {
+    alignItems: 'flex-end',
+    width: 28,
     marginTop: 6,
+    marginRight: 10,
     color: 'grey',
   },
   topBar: {
-    marginTop: 15,
-    width: 320,
-    height: 50,
     flexDirection: 'row',
+    alignItems: 'flex-start',
+    marginTop: 24,
+    paddingBottom: 6,
   },
   childName: {
     marginLeft: 5,
     fontSize: 14,
     marginTop: 10,
+    flex: 1,
     color: 'grey',
   },
   childImage: {
     marginLeft: 10,
-    height: 40,
-    width: 40,
-    borderRadius: 20,
+    width: 36,
+    height: 36,
+    borderRadius: 18,
   },
 });

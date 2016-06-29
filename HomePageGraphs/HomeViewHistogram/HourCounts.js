@@ -21,7 +21,7 @@ export default class HourCounts extends React.Component {
   };
 
   setHeight () {
-    return { height: this.props.barHeight, marginTop: 300-this.props.barHeight};
+    return { height: this.props.barHeight, marginTop: this.props.graphHeight-this.props.barHeight};
   };
 
   render () {

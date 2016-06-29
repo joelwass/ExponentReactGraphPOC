@@ -31,20 +31,37 @@ class FirstExperience extends React.Component {
 
   render() {
     return (
-      <View>
-        <TopBar childName={this.state.childName}/>
-        <CircleWordCountGraph />
+      <View style={styles.container}>
+        <TopBar childName={this.state.childName} style={styles.topBar}/>
+        <CircleWordCountGraph style={styles.topHalf}/>
         <View style={styles.lookingContainer}>
           <Text style={styles.wordsLabel}>Looking</Text>
           <Text style={styles.lastSynced}>Last Syncd Today at 2:40 PM</Text>
         </View>
-        <HomePageChart />
+        <HomePageChart style={styles.bottomHalf}/>
+        <View style={styles.padding}/>
       </View>
     );
   }
 }
 
 let styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    flexDirection: 'column',
+  },
+  bottomHalf: {
+    flex: 1,
+  },
+  topBar: {
+    flex: 0.3,
+  },
+  padding: {
+    height: 44,
+  },
+  topHalf: {
+    flex: .75,
+  },
   lastSynced: {
     color: '#ffa500',
     fontSize: 12,
@@ -55,7 +72,8 @@ let styles = StyleSheet.create({
     fontSize: 12,
   },
   lookingContainer: {
-    paddingBottom: 16,
+    flex: 0.1,
+    paddingBottom: 14,
     backgroundColor: 'azure',
   },
 });
