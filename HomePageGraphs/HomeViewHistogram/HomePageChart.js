@@ -22,22 +22,19 @@ export default class HomePageChart extends React.Component  {
     };
   }
 
-  setHeight(e) {
-    console.log(e.nativeEvent.layout.height);
+  _setHeight(e) {
     this.setState({measured: true});
     this.setState({graphHeight: e.nativeEvent.layout.height});
+  }
+
+  _setNotchTopMargin() {
+    return {marginTop: this.state.graphHeight /4}
   }
 
   render() {
     if (!this.state.measured) {
       return (
-        <View ref="container" style={[styles.container, styles.containerBackground]} onLayout={(e) => {this.setHeight(e)}}>
-          <View style={styles.notchesAndWordLabels}>
-            <View style={styles.wordCountNotch}/>
-            <Text style={[styles.wordCountText, styles.smallFontSize]}>1000 words</Text>
-            <View style={styles.wordCountNotch}/>
-            <Text style={[styles.wordCountText, styles.smallFontSize]}>500 words</Text>
-          </View>
+        <View ref="container" style={[styles.container, styles.containerBackground]} onLayout={(e) => {this._setHeight(e)}}>
         </View>
       );
     }
@@ -45,9 +42,9 @@ export default class HomePageChart extends React.Component  {
     return (
       <View ref="container" style={[styles.container, styles.containerBackground]}>
         <View style={styles.notchesAndWordLabels}>
-          <View style={styles.wordCountNotch}/>
+          <View style={[styles.wordCountNotch, this._setNotchTopMargin()]}/>
           <Text style={[styles.wordCountText, styles.smallFontSize]}>1000 words</Text>
-          <View style={styles.wordCountNotch}/>
+          <View style={[styles.wordCountNotch, this._setNotchTopMargin()]}/>
           <Text style={[styles.wordCountText, styles.smallFontSize]}>500 words</Text>
         </View>
         <ScrollView
@@ -74,9 +71,8 @@ let styles = StyleSheet.create({
     marginLeft: 20,
   },
   wordCountNotch: {
-    width: 358,
+    width: Dimensions.get('window').width - 20,
     height: 1,
-    marginTop: Dimensions.get('window').height /8.5,
     backgroundColor: 'white',
   },
   wordCountText: {

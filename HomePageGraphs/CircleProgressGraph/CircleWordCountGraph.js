@@ -67,10 +67,10 @@ let styles = StyleSheet.create({
   graphContainer: {
     marginLeft: GRAPH_SPACING/2,
     marginRight: GRAPH_SPACING/2,
-    shadowColor: 'black',
-    shadowOffset: { width: 0, height: 0 },
-    shadowOpacity: 0.4,
-    shadowRadius: 10,
+    // shadowColor: 'black',
+    // shadowOffset: { width: 0, height: 0 },
+    // shadowOpacity: 0.4,
+    // shadowRadius: 10,
   },
   graph: {
     overflow: 'visible',

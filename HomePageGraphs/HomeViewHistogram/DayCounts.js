@@ -99,13 +99,17 @@ let styles = StyleSheet.create({
     color: 'white',
     fontSize: 12,
     marginTop: 14,
-    marginLeft:Dimensions.get('window').width/28,
-    marginRight:Dimensions.get('window').width/28,
+    shadowColor: 'black',
+    shadowOffset: { width: 0, height: 0 },
+    shadowOpacity: 0.4,
+    shadowRadius: 10,
+    //margin calculation: each label is roughly 27 wide, so 6 labels * 27 wide = 162. then divide by 12 because 6 gaps to fill
+    marginLeft:(Dimensions.get('window').width-162)/12,
+    marginRight:(Dimensions.get('window').width-162)/12,
   },
   dayCountContainer: {
-    width: Dimensions.get('window').width-10,
+    width: Dimensions.get('window').width,
     flexDirection: 'row',
-    marginLeft: 10,
   },
   bars: {
     flexDirection: 'row',
