@@ -17,17 +17,31 @@ export default class HomePageChart extends React.Component  {
   constructor(props) {
     super(props);
     this.state = {
-      graphHeight: 240,
+      graphHeight: 100,
+      measured: false,
     };
   }
 
-  measure() {
-    this.refs.container.measure((a, b, width, height) => {
-      height
-    });
+  setHeight(e) {
+    console.log(e.nativeEvent.layout.height);
+    this.setState({measured: true});
+    this.setState({graphHeight: e.nativeEvent.layout.height});
   }
 
   render() {
+    if (!this.state.measured) {
+      return (
+        <View ref="container" style={[styles.container, styles.containerBackground]} onLayout={(e) => {this.setHeight(e)}}>
+          <View style={styles.notchesAndWordLabels}>
+            <View style={styles.wordCountNotch}/>
+            <Text style={[styles.wordCountText, styles.smallFontSize]}>1000 words</Text>
+            <View style={styles.wordCountNotch}/>
+            <Text style={[styles.wordCountText, styles.smallFontSize]}>500 words</Text>
+          </View>
+        </View>
+      );
+    }
+
     return (
       <View ref="container" style={[styles.container, styles.containerBackground]}>
         <View style={styles.notchesAndWordLabels}>

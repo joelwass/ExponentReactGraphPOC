@@ -10,6 +10,7 @@ import {
 } from 'react-native';
 import CircleGraph from './CircleGraph';
 import Padding from './GraphPadding';
+import Dimensions from 'Dimensions';
 
 const GRAPH_SPACING = 30;
 const GRAPH_SOURCE = [
@@ -58,14 +59,18 @@ export default class CircleWordCountGraph extends React.Component {
 
 let styles = StyleSheet.create({
   container: {
-    width: 320 + GRAPH_SPACING,
+    width: Dimensions.get('window').width,
     alignSelf: 'center',
     overflow: 'visible',
     backgroundColor: 'azure',
   },
   graphContainer: {
-    marginHorizontal: GRAPH_SPACING /2,
-    overflow: 'visible',
+    marginLeft: GRAPH_SPACING/2,
+    marginRight: GRAPH_SPACING/2,
+    shadowColor: 'black',
+    shadowOffset: { width: 0, height: 0 },
+    shadowOpacity: 0.4,
+    shadowRadius: 10,
   },
   graph: {
     overflow: 'visible',
