@@ -18,6 +18,7 @@ import {
 import CircleWordCountGraph from './HomePageGraphs/CircleProgressGraph/CircleWordCountGraph';
 import HomePageChart from './HomePageGraphs/HomeViewHistogram/HomePageChart';
 import TopBar from './HomePageTopBar/TopBar';
+import { Font } from 'exponent';
 
 
 class FirstExperience extends React.Component {
@@ -26,10 +27,26 @@ class FirstExperience extends React.Component {
     super(props, context);
     this.state = {
       childName: "Ryan",
+      assetsLoaded: false,
     };
   }
 
+  async componentWillMount() {
+    // Load mandatory assets
+    await Font.loadAsync({
+      awesome: 'https://github.com/FortAwesome/Font-Awesome/raw/master/fonts/fontawesome-webfont.ttf',
+    });
+    this.setState({assetsLoaded: true});
+  }
+
   render() {
+
+    if (!this.state.assetsLoaded) {
+        return (
+          <View/>
+        );
+    }
+
     return (
       <View style={styles.container}>
         <TopBar childName={this.state.childName} style={styles.topBar}/>

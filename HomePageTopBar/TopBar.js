@@ -12,29 +12,11 @@ export default class TopBar extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      assetsLoaded: false,
       childName: this.props.childName,
     };
   }
 
-  async componentWillMount() {
-    // Load mandatory assets
-    await Font.loadAsync({
-      awesome: 'https://github.com/FortAwesome/Font-Awesome/raw/master/fonts/fontawesome-webfont.ttf',
-    });
-    this.setState({assetsLoaded: true});
-  }
-
   render() {
-    if (!this.state.assetsLoaded) {
-      return (
-        <View style={styles.topBar}>
-          <Image style={styles.childImage} source={require('./childImage.png')} />
-          <Text style={styles.childName}>{this.state.childName}</Text>
-        </View>
-      );
-    }
-
     return (
       <View style={styles.topBar}>
         <Image style={styles.childImage} source={require('./childImage.png')} />

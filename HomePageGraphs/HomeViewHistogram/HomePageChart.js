@@ -30,12 +30,16 @@ export default class HomePageChart extends React.Component  {
   }
 
   _setNotchTopMargin() {
-    return {marginTop: this.state.graphHeight /4}
+    return {marginTop: this.state.graphHeight /4};
   }
 
   _doGradiant(e) {
     let currentMidPoint = SCREEN_MID_POINT + e.nativeEvent.contentOffset.x;
 
+  }
+
+  _setScrollViewBackgroundColor(hexValue) {
+    return {backgroundColor: hexValue};
   }
 
   render() {
@@ -47,7 +51,7 @@ export default class HomePageChart extends React.Component  {
     }
 
     return (
-      <View ref="container" style={[styles.container, styles.containerBackground]}>
+      <View ref="container" style={[styles.container, this._setScrollViewBackgroundColor('#FF814F')]}>
         <View style={styles.notchesAndWordLabels}>
           <View style={[styles.wordCountNotch, this._setNotchTopMargin()]}/>
           <Text style={[styles.wordCountText, styles.smallFontSize]}>1000 words</Text>
@@ -92,9 +96,6 @@ let styles = StyleSheet.create({
     flex: 1,
     alignSelf: 'center',
     overflow: 'visible',
-  },
-  containerBackground: {
-    backgroundColor: '#FF814F',
   },
   scrollViewBackground: {
     backgroundColor: 'transparent',
