@@ -11,6 +11,7 @@ import DayCounts from './DayCounts';
 import Dimensions from 'Dimensions';
 
 const GRAPH_SPACING = 80;
+const SCREEN_MID_POINT = Dimensions.get('window').width/2
 
 export default class HomePageChart extends React.Component  {
 
@@ -32,7 +33,8 @@ export default class HomePageChart extends React.Component  {
   }
 
   _doGradiant(e) {
-    console.log('doing gradiant stuff' + e.nativeEvent.contentOffset.x);
+    let currentMidPoint = SCREEN_MID_POINT + e.nativeEvent.contentOffset.x;
+    
   }
 
   render() {
