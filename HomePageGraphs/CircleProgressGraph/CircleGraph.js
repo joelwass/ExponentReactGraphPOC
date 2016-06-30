@@ -52,8 +52,9 @@ export default class CircleGraph extends React.Component {
         <AnimatedCircularProgress
           size={150}
           width={22}
+          rotation={0}
           fill={fillAmount}
-          tintColor="#ffa500"
+          tintColor="#FF814F"
           backgroundColor="#d3d3d3">
           {
             (fill) => (
@@ -85,7 +86,7 @@ let styles = StyleSheet.create({
     fontSize: 14,
   },
   wordCount: {
-    color: '#ffa500',
+    color: '#FF814F',
     fontSize: 18,
     alignSelf: 'center',
   },

@@ -104,6 +104,7 @@ let styles = StyleSheet.create({
   dayCountContainer: {
     width: Dimensions.get('window').width,
     flexDirection: 'row',
+    //backgroundColor: 'orange',
   },
   bars: {
     flexDirection: 'row',

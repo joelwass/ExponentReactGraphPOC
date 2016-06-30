@@ -11,7 +11,8 @@
     "react": "^15.1.0",
     "react-native": "github:exponentjs/react-native#sdk-6.0.0",
     "react-native-circular-progress": "0.0.7",
-    "react-native-icons": "^0.7.1"
+    "react-native-icons": "^0.7.1",
+    "react-native-linear-gradient": "^1.5.12"
   },
   "exp": {
     "name": "Hello!",

@@ -11,7 +11,8 @@ import DayCounts from './DayCounts';
 import Dimensions from 'Dimensions';
 
 const GRAPH_SPACING = 80;
-const SCREEN_MID_POINT = Dimensions.get('window').width/2
+const SCREEN_MID_POINT = Dimensions.get('window').width/2;
+const SCREEN_TOTAL_WIDTH = Dimensions.get('window').width * 3;
 
 export default class HomePageChart extends React.Component  {
 
@@ -34,7 +35,7 @@ export default class HomePageChart extends React.Component  {
 
   _doGradiant(e) {
     let currentMidPoint = SCREEN_MID_POINT + e.nativeEvent.contentOffset.x;
-    
+
   }
 
   render() {
@@ -93,7 +94,7 @@ let styles = StyleSheet.create({
     overflow: 'visible',
   },
   containerBackground: {
-    backgroundColor: 'orange',
+    backgroundColor: '#FF814F',
   },
   scrollViewBackground: {
     backgroundColor: 'transparent',
