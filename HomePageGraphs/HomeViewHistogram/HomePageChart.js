@@ -31,6 +31,10 @@ export default class HomePageChart extends React.Component  {
     return {marginTop: this.state.graphHeight /4}
   }
 
+  _doGradiant(e) {
+    console.log('doing gradiant stuff' + e.nativeEvent.contentOffset.x);
+  }
+
   render() {
     if (!this.state.measured) {
       return (
@@ -48,7 +52,9 @@ export default class HomePageChart extends React.Component  {
           <Text style={[styles.wordCountText, styles.smallFontSize]}>500 words</Text>
         </View>
         <ScrollView
+        onScroll = {this._doGradiant}
         horizontal={true}
+        scrollEventThrottle={10}
         scrollsToTop={false}
         pagingEnabled = {true}
         showsHorizontalScrollIndicator={false}

@@ -22,8 +22,6 @@ export default class DayCounts extends React.Component {
       //time third could be 0, 1, or 2. based on which third of time we're looking at (7pm to 5am.. etc)
       timeThird: this.props.timeThird,
     };
-    this._getRandomBarHeight = this._getRandomBarHeight.bind(this);
-    this._getTimeLabels = this._getTimeLabels.bind(this);
   }
 
   // get the top time labels for the current scroll view histogram
