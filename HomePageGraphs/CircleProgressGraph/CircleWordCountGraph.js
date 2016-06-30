@@ -10,6 +10,7 @@ import {
 } from 'react-native';
 import CircleGraph from './CircleGraph';
 import Padding from './GraphPadding';
+import Dimensions from 'Dimensions';
 
 const GRAPH_SPACING = 30;
 const GRAPH_SOURCE = [
@@ -41,13 +42,13 @@ export default class CircleWordCountGraph extends React.Component {
         automaticallyAdjustContentInsets={false}
         style={[styles.container, this.props.style]}>
         {GRAPH_SOURCE.map(source =>
-          this._renderGraph(source, {width: 320, height: 240})
+          this._renderGraph(source)
         )}
       </ScrollView>
     )
   }
 
-  _renderGraph(source, size) {
+  _renderGraph(source) {
     return (
     <View key={source.key} style={styles.graphContainer}>
       {source.value}
@@ -58,21 +59,18 @@ export default class CircleWordCountGraph extends React.Component {
 
 let styles = StyleSheet.create({
   container: {
-    flex: 0,
-    width: 320 + GRAPH_SPACING,
+    width: Dimensions.get('window').width,
     alignSelf: 'center',
-    paddingTop: 5,
-    paddingBottom: 15,
     overflow: 'visible',
     backgroundColor: 'azure',
   },
   graphContainer: {
-    flex: 1,
-    marginHorizontal: GRAPH_SPACING /2,
-    flexDirection: 'column',
-    alignItems: 'center',
-    alignSelf: 'center',
-    overflow: 'visible',
+    marginLeft: GRAPH_SPACING/2,
+    marginRight: GRAPH_SPACING/2,
+    // shadowColor: 'black',
+    // shadowOffset: { width: 0, height: 0 },
+    // shadowOpacity: 0.4,
+    // shadowRadius: 10,
   },
   graph: {
     overflow: 'visible',

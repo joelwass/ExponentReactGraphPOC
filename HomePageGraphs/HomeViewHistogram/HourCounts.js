@@ -8,6 +8,7 @@ import {
   TextInput,
   StyleSheet,
 } from 'react-native';
+import Dimensions from 'Dimensions';
 
 export default class HourCounts extends React.Component {
   constructor(props) {
@@ -17,11 +18,11 @@ export default class HourCounts extends React.Component {
   }
 
   setMarginLeft () {
-      return { marginLeft: 6 * this.props.barInterval};
+      return { marginLeft: (Dimensions.get('window').width-144)/25};
   };
 
   setHeight () {
-    return { height: this.props.barHeight, marginTop: 300-this.props.barHeight};
+    return { height: this.props.barHeight, marginTop: this.props.graphHeight-this.props.barHeight};
   };
 
   render () {

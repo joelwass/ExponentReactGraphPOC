@@ -51,7 +51,7 @@ export default class CircleGraph extends React.Component {
         <Text style={[styles.centerFontSize, styles.dayLabel]}>{this._getDayLabel()}</Text>
         <AnimatedCircularProgress
           size={150}
-          width={18}
+          width={22}
           fill={fillAmount}
           tintColor="#ffa500"
           backgroundColor="#d3d3d3">
@@ -82,20 +82,20 @@ let styles = StyleSheet.create({
   },
   centerFontSize: {
     alignSelf: 'center',
-    fontSize: 12,
+    fontSize: 14,
   },
   wordCount: {
     color: '#ffa500',
-    fontSize: 16,
+    fontSize: 18,
     alignSelf: 'center',
   },
   wordGoal: {
-    fontSize: 12,
+    fontSize: 14,
     alignSelf: 'center',
   },
   innerCircleContent: {
-    top:50,
-    left: 44,
+    top:44,
+    left: 40,
     position: 'absolute',
   },
 });

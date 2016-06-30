@@ -8,6 +8,7 @@ import {
   ScrollView,
 } from 'react-native';
 import DayCounts from './DayCounts';
+import Dimensions from 'Dimensions';
 
 const GRAPH_SPACING = 80;
 
@@ -16,29 +17,52 @@ export default class HomePageChart extends React.Component  {
   constructor(props) {
     super(props);
     this.state = {
-      height: 300,
+      graphHeight: 100,
+      measured: false,
     };
   }
 
+  _setHeight(e) {
+    this.setState({measured: true});
+    this.setState({graphHeight: e.nativeEvent.layout.height});
+  }
+
+  _setNotchTopMargin() {
+    return {marginTop: this.state.graphHeight /4}
+  }
+
+  _doGradiant(e) {
+    console.log('doing gradiant stuff' + e.nativeEvent.contentOffset.x);
+  }
+
   render() {
+    if (!this.state.measured) {
+      return (
+        <View ref="container" style={[styles.container, styles.containerBackground]} onLayout={(e) => {this._setHeight(e)}}>
+        </View>
+      );
+    }
+
     return (
-      <View style={[styles.container, styles.containerBackground]}>
+      <View ref="container" style={[styles.container, styles.containerBackground]}>
         <View style={styles.notchesAndWordLabels}>
-          <View style={styles.wordCountNotch}/>
+          <View style={[styles.wordCountNotch, this._setNotchTopMargin()]}/>
           <Text style={[styles.wordCountText, styles.smallFontSize]}>1000 words</Text>
-          <View style={styles.wordCountNotch}/>
+          <View style={[styles.wordCountNotch, this._setNotchTopMargin()]}/>
           <Text style={[styles.wordCountText, styles.smallFontSize]}>500 words</Text>
         </View>
         <ScrollView
+        onScroll = {this._doGradiant}
         horizontal={true}
+        scrollEventThrottle={10}
         scrollsToTop={false}
         pagingEnabled = {true}
         showsHorizontalScrollIndicator={false}
         automaticallyAdjustContentInsets = {false}
-        style={[styles.container, styles.scrollViewBackground, this.props.style]}>
-          <DayCounts graphHeight={this.state.height} timeThird={0}/>
-          <DayCounts graphHeight={this.state.height} timeThird={1}/>
-          <DayCounts graphHeight={this.state.height} timeThird={2}/>
+        style={[styles.scrollViewBackground, this.props.style]}>
+          <DayCounts graphHeight={this.state.graphHeight} timeThird={0}/>
+          <DayCounts graphHeight={this.state.graphHeight} timeThird={1}/>
+          <DayCounts graphHeight={this.state.graphHeight} timeThird={2}/>
         </ScrollView>
       </View>
     )
@@ -47,13 +71,14 @@ export default class HomePageChart extends React.Component  {
 
 let styles = StyleSheet.create({
   notchesAndWordLabels: {
+    flex: 1,
+    flexDirection: 'column',
     position: 'absolute',
-    marginLeft: 36,
+    marginLeft: 20,
   },
   wordCountNotch: {
-    width: 358,
+    width: Dimensions.get('window').width - 20,
     height: 1,
-    marginTop: 100,
     backgroundColor: 'white',
   },
   wordCountText: {
@@ -61,7 +86,7 @@ let styles = StyleSheet.create({
     color: 'white',
   },
   container: {
-    width: 320 + GRAPH_SPACING,
+    flex: 1,
     alignSelf: 'center',
     overflow: 'visible',
   },
@@ -70,11 +95,8 @@ let styles = StyleSheet.create({
   },
   scrollViewBackground: {
     backgroundColor: 'transparent',
-  },
-  graphContainer: {
-    marginHorizontal: GRAPH_SPACING / 2,
     flexDirection: 'column',
-    alignItems: 'center',
+    width: Dimensions.get('window').width,
     alignSelf: 'center',
     overflow: 'visible',
   },

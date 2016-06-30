@@ -7,6 +7,7 @@ import {
   StyleSheet,
 } from 'react-native';
 import HourCount from './HourCounts';
+import Dimensions from 'Dimensions';
 
 const HOUR_SPACING = [
   { key: 1, value: 10 },
@@ -21,8 +22,6 @@ export default class DayCounts extends React.Component {
       //time third could be 0, 1, or 2. based on which third of time we're looking at (7pm to 5am.. etc)
       timeThird: this.props.timeThird,
     };
-    this._getRandomBarHeight.bind(this);
-    this._getTimeLabels.bind(this);
   }
 
   // get the top time labels for the current scroll view histogram
@@ -56,34 +55,30 @@ export default class DayCounts extends React.Component {
           <Text style={styles.times}>{this._getTimeLabels()[5]}</Text>
         </View>
         <View style={styles.bars}>
-          <HourCount barInterval={1} barHeight={this._getRandomBarHeight()}/>
-          <HourCount barInterval={1} barHeight={this._getRandomBarHeight()}/>
-          <HourCount barInterval={1} barHeight={this._getRandomBarHeight()}/>
-          <HourCount barInterval={1} barHeight={this._getRandomBarHeight()}/>
-          <HourCount barInterval={1} barHeight={this._getRandomBarHeight()}/>
-          <HourCount barInterval={1} barHeight={this._getRandomBarHeight()}/>
-          <HourCount barInterval={1} barHeight={this._getRandomBarHeight()}/>
-          <HourCount barInterval={1} barHeight={this._getRandomBarHeight()}/>
-          <HourCount barInterval={1} barHeight={this._getRandomBarHeight()}/>
-          <HourCount barInterval={1} barHeight={this._getRandomBarHeight()}/>
-          <HourCount barInterval={1} barHeight={this._getRandomBarHeight()}/>
-          <HourCount barInterval={1} barHeight={this._getRandomBarHeight()}/>
-          <HourCount barInterval={1} barHeight={this._getRandomBarHeight()}/>
-          <HourCount barInterval={1} barHeight={this._getRandomBarHeight()}/>
-          <HourCount barInterval={1} barHeight={this._getRandomBarHeight()}/>
-          <HourCount barInterval={1} barHeight={this._getRandomBarHeight()}/>
-          <HourCount barInterval={1} barHeight={this._getRandomBarHeight()}/>
-          <HourCount barInterval={1} barHeight={this._getRandomBarHeight()}/>
-          <HourCount barInterval={1} barHeight={this._getRandomBarHeight()}/>
-          <HourCount barInterval={1} barHeight={this._getRandomBarHeight()}/>
-          <HourCount barInterval={1} barHeight={this._getRandomBarHeight()}/>
-          <HourCount barInterval={1} barHeight={this._getRandomBarHeight()}/>
-          <HourCount barInterval={1} barHeight={this._getRandomBarHeight()}/>
-          <HourCount barInterval={1} barHeight={this._getRandomBarHeight()}/>
-          <HourCount barInterval={1} barHeight={this._getRandomBarHeight()}/>
-          <HourCount barInterval={1} barHeight={this._getRandomBarHeight()}/>
-          <HourCount barInterval={1} barHeight={this._getRandomBarHeight()}/>
-          <HourCount barInterval={1} barHeight={this._getRandomBarHeight()}/>
+          <HourCount barInterval={1} barHeight={this._getRandomBarHeight()} graphHeight={this.state.graphHeight}/>
+          <HourCount barInterval={1} barHeight={this._getRandomBarHeight()} graphHeight={this.state.graphHeight}/>
+          <HourCount barInterval={1} barHeight={this._getRandomBarHeight()} graphHeight={this.state.graphHeight}/>
+          <HourCount barInterval={1} barHeight={this._getRandomBarHeight()} graphHeight={this.state.graphHeight}/>
+          <HourCount barInterval={1} barHeight={this._getRandomBarHeight()} graphHeight={this.state.graphHeight}/>
+          <HourCount barInterval={1} barHeight={this._getRandomBarHeight()} graphHeight={this.state.graphHeight}/>
+          <HourCount barInterval={1} barHeight={this._getRandomBarHeight()} graphHeight={this.state.graphHeight}/>
+          <HourCount barInterval={1} barHeight={this._getRandomBarHeight()} graphHeight={this.state.graphHeight}/>
+          <HourCount barInterval={1} barHeight={this._getRandomBarHeight()} graphHeight={this.state.graphHeight}/>
+          <HourCount barInterval={1} barHeight={this._getRandomBarHeight()} graphHeight={this.state.graphHeight}/>
+          <HourCount barInterval={1} barHeight={this._getRandomBarHeight()} graphHeight={this.state.graphHeight}/>
+          <HourCount barInterval={1} barHeight={this._getRandomBarHeight()} graphHeight={this.state.graphHeight}/>
+          <HourCount barInterval={1} barHeight={this._getRandomBarHeight()} graphHeight={this.state.graphHeight}/>
+          <HourCount barInterval={1} barHeight={this._getRandomBarHeight()} graphHeight={this.state.graphHeight}/>
+          <HourCount barInterval={1} barHeight={this._getRandomBarHeight()} graphHeight={this.state.graphHeight}/>
+          <HourCount barInterval={1} barHeight={this._getRandomBarHeight()} graphHeight={this.state.graphHeight}/>
+          <HourCount barInterval={1} barHeight={this._getRandomBarHeight()} graphHeight={this.state.graphHeight}/>
+          <HourCount barInterval={1} barHeight={this._getRandomBarHeight()} graphHeight={this.state.graphHeight}/>
+          <HourCount barInterval={1} barHeight={this._getRandomBarHeight()} graphHeight={this.state.graphHeight}/>
+          <HourCount barInterval={1} barHeight={this._getRandomBarHeight()} graphHeight={this.state.graphHeight}/>
+          <HourCount barInterval={1} barHeight={this._getRandomBarHeight()} graphHeight={this.state.graphHeight}/>
+          <HourCount barInterval={1} barHeight={this._getRandomBarHeight()} graphHeight={this.state.graphHeight}/>
+          <HourCount barInterval={1} barHeight={this._getRandomBarHeight()} graphHeight={this.state.graphHeight}/>
+          <HourCount barInterval={1} barHeight={this._getRandomBarHeight()} graphHeight={this.state.graphHeight}/>
         </View>
       </View>
     );
@@ -94,7 +89,6 @@ let styles = StyleSheet.create({
   timeLabels: {
     position: 'absolute',
     flexDirection: 'row',
-    width: 400,
   },
   smallFontSize: {
     fontSize: 10,
@@ -103,16 +97,16 @@ let styles = StyleSheet.create({
     color: 'white',
     fontSize: 12,
     marginTop: 14,
-    marginLeft:17,
-    marginRight:17,
+    //margin calculation: each label is roughly 27 wide, so 6 labels * 27 wide = 162. then divide by 12 because 6 gaps to fill
+    marginLeft:(Dimensions.get('window').width-162)/12,
+    marginRight:(Dimensions.get('window').width-162)/12,
   },
   dayCountContainer: {
-    width: 380,
+    width: Dimensions.get('window').width,
     flexDirection: 'row',
-    marginLeft: 20,
   },
   bars: {
     flexDirection: 'row',
-    marginLeft: 10,
+    alignItems: 'center',
   },
 });
