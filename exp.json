@@ -1,4 +1,5 @@
 {
   "name": "VersaMePOC",
-  "sdkVersion": "6.0.0"
+  "sdkVersion": "6.0.0",
+  "orientation": "portrait",
 }
